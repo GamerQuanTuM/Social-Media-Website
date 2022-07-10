@@ -33,14 +33,14 @@ const InfoCard = () => {
                 <span>
                     <b>Lives in </b>
                 </span>
-                <span>Multan</span>
+                <span>Seoul</span>
             </div>
 
             <div className={styles.info}>
                 <span>
-                    <b>Works at </b>
+                    <b>Singer at </b>
                 </span>
-                <span>Zainkeepscode inst</span>
+                <span>Twice</span>
             </div>
 
             <button className={`button ${styles.logout_button}`}>

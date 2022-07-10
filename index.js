@@ -3,6 +3,7 @@ import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import AuthRoute from "./Routes/AuthRoute.js"
+import UserRoute from "./Routes/UserRoute.js"
 
 const port = process.env.PORT || 2000;
 
@@ -34,6 +35,7 @@ mongoose.connect(process.env.MONGODB, {
 
 //Usage of routes
 app.use("/auth", AuthRoute)
+app.use("/user", UserRoute)
 
 
 app.listen(port, () => {

@@ -79,6 +79,7 @@
     background-color: var(--cardColor);
     border-radius: 1rem;
     padding: 1rem;
+    width:30vw
 }
 
 .authForm>div {

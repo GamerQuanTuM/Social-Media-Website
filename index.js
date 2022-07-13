@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 import AuthRoute from "./Routes/AuthRoute.js"
 import UserRoute from "./Routes/UserRoute.js"
 import PostRoute from "./Routes/PostRoute.js"
+import cors from "cors"
 
 const port = process.env.PORT || 2000;
 
@@ -21,6 +22,7 @@ app.use(bodyParser.urlencoded({
     extended: "true"
 }));
 
+app.use(cors())
 dotenv.config()
 
 //Database Connection

@@ -1,14 +1,16 @@
 import styles from "./auth.module.css"
 import Logo from "../../img/logo.png";
 import { useState } from "react";
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { logIn, signUp } from "../../actions/AuthAction";
 
 const Auth = () => {
 
     const dispatch = useDispatch()
 
+    const loading = useSelector((state) => state.authReducer.loading)
     const [isSignUp, setIsSignUp] = useState(false);
+    console.log(loading);
     const [data, setData] = useState({
         firstname: "",
         lastname: "",
@@ -27,7 +29,7 @@ const Auth = () => {
         e.preventDefault()
         if (isSignUp) {
             data.password === data.confirmPassword ? dispatch(signUp(data)) : setConfirmPass(false)
-        }else{
+        } else {
             dispatch(logIn(data))
         }
     }
@@ -86,7 +88,7 @@ const Auth = () => {
                             cursor: "pointer"
                         }}>{isSignUp ? "Already have an Account Login!" : "Don't have an account? Sign Up"}</span>
                     </div>
-                    <button type="submit" className={`button ${styles.infoButton}`}>{isSignUp ? "Sign Up" : "Log In"}</button>
+                    <button type="submit" disabled={loading} className={`button ${styles.infoButton}`}>{loading ? "Loading..." : isSignUp ? "Sign Up" : "Log In" }</button>
                 </form>
             </div>
         </div>

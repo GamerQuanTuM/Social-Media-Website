@@ -11,6 +11,10 @@ import cors from "cors";
 const port = process.env.PORT || 2000;
 
 const app = express();
+//To server images for public
+
+app.use(express.static("public"));
+app.use("/images", express.static("images"));
 
 //Middleware
 app.use(
